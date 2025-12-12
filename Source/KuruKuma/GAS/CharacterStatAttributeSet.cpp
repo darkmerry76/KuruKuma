@@ -27,6 +27,14 @@ void UCharacterStatAttributeSet::PostAttributeBaseChange(const FGameplayAttribut
 	{
 		OnMaxHealthChanged.Broadcast(OldValue, NewValue);
 	}
+	else if (Attribute == GetLevelAttribute())
+	{
+		OnLevelChanged.Broadcast(OldValue, NewValue);
+	}
+	else if (Attribute == GetMoveSpeedAttribute())
+	{
+		OnMoveSpeedChanged.Broadcast(OldValue, NewValue);
+	}
 }
 
 void UCharacterStatAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data)

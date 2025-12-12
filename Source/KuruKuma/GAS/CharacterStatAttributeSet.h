@@ -18,19 +18,33 @@ class KURUKUMA_API UCharacterStatAttributeSet : public UAttributeSet
 public:
 	ATTRIBUTE_ACCESSORS_BASIC(ThisClass, Health)
 	ATTRIBUTE_ACCESSORS_BASIC(ThisClass, MaxHealth)
+	ATTRIBUTE_ACCESSORS_BASIC(ThisClass, MoveSpeed)
+	ATTRIBUTE_ACCESSORS_BASIC(ThisClass, Level)
 
 protected:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Attribute")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Attribute")
 	FGameplayAttributeData Health = 0.f;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Attribute")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Attribute")
 	FGameplayAttributeData MaxHealth = 0.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Attribute")
+	FGameplayAttributeData Level = 0.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Attribute")
+	FGameplayAttributeData MoveSpeed = 0.f;
 	
 	UPROPERTY(BlueprintAssignable, Category="Attribute")
 	FCharacterStatAttributeChanged OnHealthChanged;
 
 	UPROPERTY(BlueprintAssignable, Category="Attribute")
 	FCharacterStatAttributeChanged OnMaxHealthChanged;
+
+	UPROPERTY(BlueprintAssignable, Category="Attribute")
+	FCharacterStatAttributeChanged OnLevelChanged;
+
+	UPROPERTY(BlueprintAssignable, Category="Attribute")
+	FCharacterStatAttributeChanged OnMoveSpeedChanged;
 
 	UPROPERTY(BlueprintAssignable, Category="Attribute")
 	FOutOfHealth OnOutOfHealth;
